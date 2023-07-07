@@ -15,19 +15,19 @@ function NavBar() {
           {/*Logo section*/}
           <div className="px-2 lg:w-0 lg:flex-1">
             <span className="flex items-center">
-              <Link href="/"><a className="text-lg font-bold text-red-600">C</a></Link>
-              <Link href="/"><a className="text-lg font-bold text-green-600">a</a></Link>
-              <Link href="/"><a className="text-lg font-bold">pital FX</a></Link>
+              <Link href="/" className="text-lg font-bold text-red-600">C</Link>
+              <Link href="/" className="text-lg font-bold text-green-600">a</Link>
+              <Link href="/" className="text-lg font-bold">pital FX</Link>
             </span>
           </div>
 
          {/*Navigation Links*/}
           <div className="hidden px-2 lg:flex lg:space-x-5">
-            <Link href="/"><a className="text-base font-medium">Home</a></Link>
-            <Link href="/about"><a className="text-base font-medium">About</a></Link>
-            <Link href="/market"><a className="text-base font-medium">Market</a></Link>
-            <Link href="/contacts"><a className="text-base font-medium">Contacts</a></Link>
-            <Link href="/blog"><a className="text-base font-medium">Blog</a></Link>
+            <Link href="/" className="text-base font-medium">Home</Link>
+            <Link href="/about" className="text-base font-medium">About</Link>
+            <Link href="/market" className="text-base font-medium">Market</Link>
+            <Link href="/contacts" className="text-base font-medium">Contacts</Link>
+            <Link href="/blog" className="text-base font-medium">Blog</Link>
           </div>
 
           {/* Search box (hidden on smaller screens, visible on larger) */}
@@ -69,11 +69,11 @@ function NavBar() {
           {/*Responsive Menu*/}
           {isOpen && (
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link href="/"><a className="text-base font-medium">Home</a></Link>
-              <Link href="/about"><a className="text-base font-medium">About</a></Link>
-              <Link href="/market"><a className="text-base font-medium">Market</a></Link>
-              <Link href="/contacts"><a className="text-base font-medium">Contacts</a></Link>
-              <Link href="/blog"><a className="text-base font-medium">Blog</a></Link>
+              <Link href="/" className="text-base font-medium">Home</Link>
+              <Link href="/about" className="text-base font-medium">About</Link>
+              <Link href="/market" className="text-base font-medium">Market</Link>
+              <Link href="/contacts" className="text-base font-medium">Contacts</Link>
+              <Link href="/blog" className="text-base font-medium">Blog</Link>
             </div>
           )}
         </div>

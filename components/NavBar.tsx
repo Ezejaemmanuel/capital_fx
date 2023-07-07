@@ -1,4 +1,4 @@
-// components/NavBar.tsx
+"use client";
 import { useState } from 'react';
 import Link from 'next/link';
 import { IoIosMenu, IoIosClose, IoIosSearch, IoMdSearch } from 'react-icons/io';
@@ -6,14 +6,13 @@ import { IoIosMenu, IoIosClose, IoIosSearch, IoMdSearch } from 'react-icons/io';
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const menuIcon = isOpen ? IoIosClose : IoIosMenu;
-  
+
   return (
     <nav className="bg-yellow-500">
       <div className="px-2 mx-auto max-w-7xl sm:px-4 lg:px-8">
-        <div className="relative flex justify-between h-16">
+        <div className="relative flex items-center justify-between h-16">
 
-          {/*Logo*/}
+          {/*Logo section*/}
           <div className="px-2 lg:w-0 lg:flex-1">
             <span className="flex items-center">
               <Link href="/"><a className="text-lg font-bold text-red-600">C</a></Link>
@@ -58,8 +57,12 @@ function NavBar() {
               </div>
             )}
 
-            <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none">
-              <menuIcon className="text-white h-6 w-6" aria-hidden="true" />
+            {/* This is the updated part: */}
+            <button onClick={() => setIsOpen(!isOpen)} className="inline-flex items-center justify-center p-2 rounded-md">
+              {/* Conditional rendering of close icon or menu icon */}
+              {isOpen 
+                 ? <IoIosClose className="h-6 w-6 text-white" aria-hidden="true" /> 
+                 : <IoIosMenu className="h-6 w-6 text-white" aria-hidden="true" />}
             </button>
           </div>
 

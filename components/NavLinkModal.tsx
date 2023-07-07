@@ -11,10 +11,11 @@ function DismissableModal() {
       <Button onClick={() => props.setOpenModal('dismissible')}>Toggle Modal</Button>
       <Modal dismissible show={props.openModal === 'dismissible'} onClose={() => props.setOpenModal(undefined)}>
         <Modal.Header>Navigation</Modal.Header>
+        
         <Modal.Body>
           <Link href="/"> 
             <a  className="text-base font-medium" onClick={() => props.setOpenModal(undefined)}>Home</a>  
-          </Link>
+          </Link>s
           <Link href="/about"> 
             <a className="text-base font-medium" onClick={() => props.setOpenModal(undefined)}>About</a> 
           </Link>

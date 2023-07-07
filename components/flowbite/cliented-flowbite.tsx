@@ -1,4 +1,4 @@
 "use client";
-import { Button,Card } from 'flowbite-react'
+import { Button,Card ,Modal} from 'flowbite-react'
 
-export {Button,Card}
+export {Button,Card,Modal}

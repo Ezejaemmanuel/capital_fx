@@ -68,7 +68,7 @@ function NavBar() {
 
           {/*Responsive Menu*/}
           {isOpen && (
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="px-2 pt-2 pb-3 space-y-1 flex-col">
               <Link href="/" className="text-base font-medium">Home</Link>
               <Link href="/about" className="text-base font-medium">About</Link>
               <Link href="/market" className="text-base font-medium">Market</Link>

@@ -21,9 +21,8 @@ const MyComponent: React.FC = () => {
     <PageWrapper >
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-center justify-center min-h-screen">
       {boxes.map((box, index) => (
-        <Card>
+        <Card key={index}>
         <div
-          key={index}
           className={`p-4 w-64 h-64 flex items-center justify-center shadow-lg rounded  bg-yellow-500`}
         >
           {box.text}

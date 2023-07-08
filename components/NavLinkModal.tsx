@@ -1,32 +1,33 @@
-import { useState } from 'react';
+// DismissableModal.tsx
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Button, Modal } from 'flowbite-react';
+import { Button, Modal } from './flowbite/cliented-flowbite';
 
-function DismissableModal() {
-  const [openModal, setOpenModal] = useState<string | undefined>();
-  const props = { openModal, setOpenModal };
+interface DismissableModalProps {
+  open: boolean;
+}
+
+const DismissableModal: React.FC<DismissableModalProps> = ({ open }) => {
+  const [openModal, setOpenModal] = useState<string | undefined>(open ? 'dismissible' : undefined);
+
+  useEffect(() => {
+    setOpenModal(open ? 'dismissible' : undefined);
+  }, [open]);
 
   return (
     <>
-      <Button onClick={() => props.setOpenModal('dismissible')}>Toggle Modal</Button>
-      <Modal dismissible show={props.openModal === 'dismissible'} onClose={() => props.setOpenModal(undefined)}>
-        <Modal.Header>Navigation</Modal.Header>
+      <Modal dismissible show={openModal === 'dismissible'} onClose={() => setOpenModal(undefined)}>
         
         <Modal.Body>
-          <Link href="/"> 
-            <a  className="text-base font-medium" onClick={() => props.setOpenModal(undefined)}>Home</a>  
-          </Link>s
-          <Link href="/about"> 
-            <a className="text-base font-medium" onClick={() => props.setOpenModal(undefined)}>About</a> 
+          <Link href="/" className="text-base font-medium" onClick={() => setOpenModal(undefined)}>Home 
           </Link>
-          <Link href="/market"> 
-            <a className="text-base font-medium" onClick={() => props.setOpenModal(undefined)}>Market</a> 
+          <Link href="/about" className="text-base font-medium" onClick={() => setOpenModal(undefined)}>About
           </Link>
-          <Link href="/contacts"> 
-            <a className="text-base font-medium" onClick={() => props.setOpenModal(undefined)}>Contacts</a> 
+          <Link href="/market" className="text-base font-medium" onClick={() => setOpenModal(undefined)}>Market
           </Link>
-          <Link href="/blog"> 
-            <a className="text-base font-medium" onClick={() => props.setOpenModal(undefined)}>Blog</a> 
+          <Link href="/contacts" className="text-base font-medium" onClick={() => setOpenModal(undefined)}>Contacts
+          </Link>
+          <Link href="/blog" className="text-base font-medium" onClick={() => setOpenModal(undefined)}>Blog
           </Link>
         </Modal.Body>
       </Modal>

@@ -2,11 +2,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { IoIosMenu, IoIosClose, IoIosSearch, IoMdSearch } from 'react-icons/io';
+import DismissableModal from './NavLinkModal';
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-
+  const [openModal, setOpenModal] = useState<string | undefined>();
   return (
     <nav className="bg-yellow-500">
       <div className="px-2 mx-auto max-w-7xl sm:px-4 lg:px-8">
@@ -66,16 +67,8 @@ function NavBar() {
             </button>
           </div>
 
-          {/*Responsive Menu*/}
-          {isOpen && (
-            <div className="px-2 pt-2 pb-3 space-y-1 flex-col">
-              <Link href="/" className="text-base font-medium">Home</Link>
-              <Link href="/about" className="text-base font-medium">About</Link>
-              <Link href="/market" className="text-base font-medium">Market</Link>
-              <Link href="/contacts" className="text-base font-medium">Contacts</Link>
-              <Link href="/blog" className="text-base font-medium">Blog</Link>
-            </div>
-          )}
+    
+          {isOpen && <DismissableModal open={isOpen} />}
         </div>
       </div>
     </nav>

@@ -32,9 +32,14 @@ function NavBar() {
           {/*Logo section*/}
           <div className="px-2 lg:w-0 lg:flex-1">
             <span className="flex items-center">
-              <Link href="/" className="text-lg font-bold text-red-600">C</Link>
-              <Link href="/" className="text-lg font-bold text-green-600">a</Link>
-              <Link href="/" className="text-lg font-bold">pital FX</Link>
+              <Link href="/" className="text-[1.75rem] font-bold ">C</Link>
+              <Link href="/" className="text-2xl font-bold ">a</Link>
+              <Link href="/" className="text-2xl font-bold">p</Link>
+              <Link href="/" className="text-2xl font-bold text-red-600">i</Link>
+              <Link href="/" className="text-2xl font-bold ">ta </Link>
+              <Link href="/" className="text-2xl font-bold text-green-600">l </Link>
+              <Link href="/" className="text-2xl font-bold">FX</Link>
+
             </span>
           </div>
 

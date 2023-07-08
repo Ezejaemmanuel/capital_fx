@@ -4,15 +4,16 @@ import Link from 'next/link';
 import { IoIosMenu, IoIosClose, IoMdSearch } from 'react-icons/io';
 import DismissableModal from './NavLinkModal';
 import { motion } from 'framer-motion';
+import ToggleModeButton from './ToogleMode';
 
 const navVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.5 } },
+  visible: { opacity: 1, transition: { duration: 2 } },
 };
 
 const searchBoxVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.5 } },
+  visible: { opacity: 1, transition: { duration: 2 } },
 };
 
 function NavBar() {
@@ -87,6 +88,7 @@ function NavBar() {
           </div>
 
           {isOpen && <DismissableModal open={isOpen} />}
+          <ToggleModeButton />
         </div>
       </div>
     </motion.nav>

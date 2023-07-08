@@ -2,6 +2,8 @@ import React from 'react';
 import { Card } from '@/components/flowbite/cliented-flowbite';
 import PageWrapper from './page-wrapper';
 import NavBar from '@/components/NavBar';
+import Header from '@/components/Header';
+import HeroSection from '@/components/Header_AI';
 type Box = {
   color: string;
   text: string;
@@ -17,8 +19,10 @@ const MyComponent: React.FC = () => {
 
   return (
     <>
-    <NavBar />
+    {/*<NavBar />*/}
     <PageWrapper >
+      {/*<Header />*/}
+      <HeroSection />
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-center justify-center min-h-screen">
       {boxes.map((box, index) => (
         <Card key={index}>

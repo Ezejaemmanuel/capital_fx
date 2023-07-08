@@ -1,27 +1,48 @@
-"use client";
-import React, { ReactNode } from 'react';
-import { motion, AnimatePresence } from '@/components/framer-motion/cliented-framer-motion';
+'use client';
+import React, { ReactNode } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
 type PageWrapperProps = {
-    children: ReactNode;
+  children: ReactNode;
 };
 
-const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => {
-    return (
-        <AnimatePresence>
-            <motion.div
-                initial={{ opacity: 0, y: 15, x: 5, rotate: 60 }}
-                animate={{ opacity: 1, y: 0, x: 0, rotate: 0 }}
-                exit={{ opacity: 0, y: 15, x: 5 }}
-                transition={{
-                    delay: 2,
-                    ease:'easeInOut'
-                    
-                }}
-            >
-                {children}
-            </motion.div>
-        </AnimatePresence>
-    );
+const pageVariants = {
+  initial: {
+    opacity: 0,
+    y: "100vh",
+    rotate: -60
+  },
+  in: {
+    opacity: 1,
+    y: "0",
+    rotate: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeInOut",
+    }
+  },
+  out: {
+    opacity: 0,
+    y: "-60vh",
+    rotate: 60,
+    transition: {
+      duration: 0.8,
+      ease: "easeInOut"
+    }
+  },
 };
+
+const PageWrapper: React.FC<PageWrapperProps> = ({ children }) => (
+  <AnimatePresence mode="wait">
+    <motion.div
+      initial='initial'
+      animate='in'
+      exit='out'
+      variants={pageVariants}
+    >
+      {children}
+    </motion.div>
+  </AnimatePresence>
+);
 
 export default PageWrapper;

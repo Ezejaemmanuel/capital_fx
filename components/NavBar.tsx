@@ -63,8 +63,9 @@ function NavBar() {
 
     
           {isOpen && <DismissableModal open={isOpen} />}
-        </div>
         <ToggleModeButton />
+
+        </div>
       </div>
     </nav>
   );

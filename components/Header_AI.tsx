@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import AnimatedText from './AnimatedText';
 import animationData from '../public/yellow_forex.json'; // replace with your file path
 import LottieAnimation from './LottieAnimation';
-import { Card } from 'flowbite-react';
 
 const textVariants = {
     hidden: { opacity: 0 },
@@ -32,7 +31,6 @@ const HeroSection: React.FC = () => {
     }, []);
 
     return (
-      <Card>
         <section className="bg-white dark:bg-gray-900">
             <div className="grid max-w-screen-xl px-4 py-8 mx-auto gap-8 xl:gap-0 lg:py-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-12">
                 <div className="mr-auto place-self-center sm:col-span-1 md:col-span-6 lg:col-span-7">
@@ -83,7 +81,6 @@ const HeroSection: React.FC = () => {
                 </div>
             </div>
         </section>
-        </Card>
     );
 }
 export default HeroSection;

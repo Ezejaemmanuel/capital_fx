@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import LottieAnimation from './LottieAnimation';
 
 const Header: React.FC = () => {
     return (
@@ -17,7 +18,7 @@ const Header: React.FC = () => {
                     </Link> 
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                    <Image src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup" width={500} height={500} />
+
                 </div>                
             </div>
         </section>

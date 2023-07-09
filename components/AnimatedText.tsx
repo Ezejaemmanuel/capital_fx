@@ -43,7 +43,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ inputText, randomizeColor, 
 
   return (
     <AnimatePresence mode='wait'>
-      <div className="flex flex-wrap items-center justify-center bg-white dark:bg-gray-900 whitespace-pre-wrap">
+      <div className="flex flex-wrap items-center justify-center bg-white dark:bg-gray-900 ">
         {chars.map((char, i) => (
           <motion.span
             ref={ref}

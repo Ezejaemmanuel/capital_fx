@@ -25,11 +25,11 @@ const MyComponent: React.FC = () => {
 
   return (
     <>
-      {/*<NavBar />*/}
+      <NavBar />
       <PageWrapper >
         {/*<Header />*/}
         <HeroSection />
-        {/* {<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-center justify-center min-h-screen">
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-center justify-center min-h-screen">
           {boxes.map((box, index) => (
             <Card key={index}>
             <FadeInWhenVisible>
@@ -43,10 +43,11 @@ const MyComponent: React.FC = () => {
             </Card>
 
           ))}
-        </div>} */}
+        </div>
         <AnimatedText inputText={'my_name____is___jatique i hate nonsense rgpoahgpoargho'} randomizeColor={true} colorStart={'blue'} colorEnd={'green'} />
-        <ImageWithText text={'"Blockchain technology revolutionizes industries by providing secure, transparent transactions. Cryptocurrencies like Bitcoin leverage blockchain to decentralize financial systems and empower users globally."'} imageUrl={'https://www.arshakir.com/uploads/projects/saas-landing-page-freebie-4.webp'}/>
       </PageWrapper>
+      <ImageWithText text={'"Blockchain technology revolutionizes industries by providing secure, transparent transactions. Cryptocurrencies like Bitcoin leverage blockchain to decentralize financial systems and empower users globally."'} imageUrl={'https://www.arshakir.com/uploads/projects/saas-landing-page-freebie-4.webp'}/>
+
     </>
   );
 };

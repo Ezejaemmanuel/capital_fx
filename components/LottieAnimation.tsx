@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import Lottie, { LottieOptions } from 'react-lottie';
+import Lottie from 'react-lottie';
 
 interface LottieAnimationProps {
   animationData: any; // replace with the type of your animation data
@@ -10,7 +10,7 @@ interface LottieAnimationProps {
 }
 
 const LottieAnimation: React.FC<LottieAnimationProps> = ({ animationData, speed = 1, height = 400, width = 400 }) => {
-  const defaultOptions: LottieOptions = {
+  const defaultOptions = {
     loop: true,
     autoplay: true,
     animationData: animationData,

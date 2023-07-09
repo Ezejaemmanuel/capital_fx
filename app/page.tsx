@@ -25,7 +25,6 @@ const MyComponent: React.FC = () => {
 
   return (
     <>
-      <NavBar />
       <PageWrapper >
         {/*<Header />*/}
         <HeroSection />

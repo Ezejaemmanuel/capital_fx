@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-     <div className='fixed w-full z-10 top-0 m-4 bg-gray-800 text-white mb-6'>
+     <div className='fixed w-full z-10 top-0 mx-4 bg-gray-800 text-white mb-6'>
         <NavBar />
       </div>
       <main className='mt-20'>{children}</main>

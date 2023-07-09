@@ -26,25 +26,25 @@ const HeroSection: React.FC = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setIndex((prevIndex) => (prevIndex + 1) % descriptions.length);
-        }, 5000); // Change description every 5 seconds
+        }, 1000); // Change description every 5 seconds
         return () => clearInterval(timer);
     }, []);
 
     return (
         <section className="bg-white dark:bg-gray-900">
-            <div className="flex flex-col-reverse lg:flex-row max-w-screen-xl px-4 py-8 mx-auto lg:space-x-8 lg:py-16 space-y-8 lg:space-y-0">
-                <div className="flex-1 flex justify-center lg:justify-start items-center">
+            <div className="flex flex-col lg:flex-row-reverse max-w-screen-xl px-4 py-8 mx-auto lg:space-x-reverse lg:space-x-8 lg:py-16 space-y-8 lg:space-y-0">
+                <div className="flex-1 flex justify-center lg:justify-end items-center">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 2 }}
                     >
                         <div className="max-w-full">
-                            <LottieAnimation animationData={animationData} speed={2}  />
+                            <LottieAnimation animationData={animationData} speed={1}  />
                         </div>
                     </motion.div>
                 </div>
-                <div className="flex-1 flex flex-col justify-center lg:items-end">
+                <div className="flex-1 flex flex-col justify-center lg:items-start">
                     <AnimatePresence mode='wait'>
                         <motion.h1
                             className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none font-serif md:text-5xl xl:text-6xl dark:text-white  bg-clip-text text-transparent"

@@ -36,7 +36,7 @@ const HeroSection: React.FC = () => {
                 <div className="mr-auto place-self-center lg:col-span-7">
                     <AnimatePresence mode='wait'>
                         <motion.h1
-                            className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none font-serif md:text-5xl xl:text-6xl dark:text-white bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text text-transparent"
+                            className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none font-serif md:text-5xl xl:text-6xl dark:text-white  bg-clip-text text-transparent"
                             key={index}
                             variants={textVariants}
                             initial="hidden"
@@ -51,7 +51,7 @@ const HeroSection: React.FC = () => {
                             <span className="">a</span>
                             <span className="text-green-500">l</span>
                             <span className="">F</span>
-                            <span className="">X</span> - <span className="text-red-700">{descriptions[index]}</span>
+                            <span className="">X</span> - <span className="bg-gradient-to-r from-red-500 to-purple-500 bg-clip-text text-transparent">{descriptions[index]}</span>
                         </motion.h1>
                     </AnimatePresence>
                     <motion.p
@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25 }}
                     >
-                        <AnimatedText inputText={'CapitalFX is a leading platform for trading and investing in cryptocurrencies, forex, and other financial instruments. We provide a seamless and secure interface for all your trading needs.'} randomizeColor={true} />
+                        <AnimatedText inputText={'CapitalFX is a leading platform for trading and investing in cryptocurrencies, forex, and other financial instruments. We provide a seamless and secure interface for all your trading needs.'} randomizeColor={false} />
                     </motion.p>
                     <Link href="#" className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                         Get started
@@ -74,7 +74,7 @@ const HeroSection: React.FC = () => {
                         transition={{ duration: 2 }}
                     >
                         <div className="max-w-full">
-                        <LottieAnimation animationData={animationData} speed={2} />
+                        <LottieAnimation animationData={animationData} speed={1}  />
 
                         </div>
                     </motion.div>

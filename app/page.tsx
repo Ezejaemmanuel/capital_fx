@@ -44,7 +44,6 @@ const MyComponent: React.FC = () => {
           ))}
         </div>
         <AnimatedText inputText={'my_name____is___jatique i hate nonsense rgpoahgpoargho'} randomizeColor={true} />
-        <LottieAnimation animationData={animationData} speed={2} />
       </PageWrapper>
     </>
   );

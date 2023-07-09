@@ -2,15 +2,29 @@
 import React from 'react';
 import Lottie from 'react-lottie';
 
+// Define the type for your animation data.
+interface AnimationData extends Record<string, unknown> {}
+
 interface LottieAnimationProps {
-  animationData: any; // replace with the type of your animation data
+  animationData: AnimationData;
   speed?: number;
   height?: number;
   width?: number;
 }
 
+// Define the type for the options object.
+interface Options {
+  loop: boolean | number;
+  autoplay: boolean;
+  animationData: AnimationData;
+  rendererSettings: {
+    preserveAspectRatio: 'xMidYMid slice'
+  };
+}
+
 const LottieAnimation: React.FC<LottieAnimationProps> = ({ animationData, speed = 1, height = 400, width = 400 }) => {
-  const defaultOptions = {
+
+  const defaultOptions: Options = {
     loop: true,
     autoplay: true,
     animationData: animationData,

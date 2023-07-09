@@ -43,7 +43,7 @@ const MyComponent: React.FC = () => {
 
           ))}
         </div>
-        <AnimatedText inputText={'my_name____is___jatique i hate nonsense rgpoahgpoargho'} randomizeColor={true} />
+        <AnimatedText inputText={'my_name____is___jatique i hate nonsense rgpoahgpoargho'} randomizeColor={true} colorStart={'blue'} colorEnd={'green'} />
       </PageWrapper>
     </>
   );

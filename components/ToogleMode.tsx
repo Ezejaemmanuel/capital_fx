@@ -6,9 +6,9 @@ const ToggleModeButton: FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
       const storedDarkMode = localStorage.getItem('darkMode');
-      return storedDarkMode ? JSON.parse(storedDarkMode) : false;
+      return storedDarkMode ? JSON.parse(storedDarkMode) : true;
     }
-    return false;
+    return true;
   });
 
   useEffect(() => {

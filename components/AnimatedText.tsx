@@ -1,24 +1,30 @@
+
 // 'use client';
 // import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 // import { useInView } from 'react-intersection-observer';
 // import { useEffect } from 'react';
+// import chroma from 'chroma-js';
 
 // interface AnimatedTextProps {
 //   inputText: string;
 //   randomizeColor: boolean;
+//   restartOnInView?: boolean;
 // }
 
-// const colors = ["#F59E0B", "#EF4444", "#3B82F6", "#10B981", "#EC4899"]; 
+// // Create a color scale from yellow to red
+// const colorScale = chroma.scale(['yellow', 'red']).mode('lch');
 
-// const AnimatedText: React.FC<AnimatedTextProps> = ({ inputText, randomizeColor }) => {
+// const AnimatedText: React.FC<AnimatedTextProps> = ({ inputText, randomizeColor, restartOnInView = false }) => {
 //   const controls = useAnimation();
 //   const { ref, inView } = useInView();
 
 //   useEffect(() => {
 //     if (inView) {
 //       controls.start("visible");
+//     } else if (!inView && restartOnInView) {
+//       controls.start("hidden");
 //     }
-//   }, [controls, inView]);
+//   }, [controls, inView, restartOnInView]);
 
 //   const textVariants = {
 //     hidden: { opacity: 0 },
@@ -35,13 +41,13 @@
 
 //   return (
 //     <AnimatePresence mode='wait'>
-//       <div className="flex flex-wrap items-center justify-center min-h-screen bg-gray-100">
+//       <div className="flex flex-wrap items-center justify-center   whitespace-pre-wrap">
 //         {chars.map((char, i) => (
 //           <motion.span
 //             ref={ref}
 //             key={char + "-" + i}
 //             // If character is a non-breaking space just leave it empty, otherwise apply color styling
-//             style={char === '\u00A0' ? {} : (randomizeColor ? { color: colors[i % colors.length] } : {})}
+//             style={char === '\u00A0' ? {} : (randomizeColor ? { color: colorScale(i / chars.length).hex() } : {})}
 //             variants={textVariants}
 //             custom={i}
 //             initial="hidden"
@@ -60,16 +66,17 @@
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import chroma from 'chroma-js';
 
 interface AnimatedTextProps {
   inputText: string;
   randomizeColor: boolean;
   restartOnInView?: boolean;
+  colorStart: string;
+  colorEnd: string;
 }
 
-const colors = ["#F59E0B", "#EF4444", "#3B82F6", "#10B981", "#EC4899"]; 
-
-const AnimatedText: React.FC<AnimatedTextProps> = ({ inputText, randomizeColor, restartOnInView = false }) => {
+const AnimatedText: React.FC<AnimatedTextProps> = ({ inputText, randomizeColor, restartOnInView = false, colorStart='yellow', colorEnd='red' }) => {
   const controls = useAnimation();
   const { ref, inView } = useInView();
 
@@ -91,18 +98,21 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ inputText, randomizeColor, 
     })
   };
   
+  // Create a color scale from colorStart to colorEnd
+  const colorScale = chroma.scale([colorStart, colorEnd]).mode('lch');
+
   // Replace spaces with non-breaking spaces
   const chars = [...inputText.replace(/ /g, '\u00A0')];
 
   return (
     <AnimatePresence mode='wait'>
-      <div className="flex flex-wrap items-center justify-center  whitespace-pre-wrap">
+      <div className="flex flex-wrap items-center justify-center bg-white dark:bg-gray-900 whitespace-pre-wrap">
         {chars.map((char, i) => (
           <motion.span
             ref={ref}
             key={char + "-" + i}
             // If character is a non-breaking space just leave it empty, otherwise apply color styling
-            style={char === '\u00A0' ? {} : (randomizeColor ? { color: colors[i % colors.length] } : {})}
+            style={char === '\u00A0' ? {} : (randomizeColor ? { color: colorScale(i / chars.length).hex() } : {})}
             variants={textVariants}
             custom={i}
             initial="hidden"

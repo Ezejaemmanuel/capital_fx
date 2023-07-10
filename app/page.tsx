@@ -8,8 +8,8 @@ import HeroSection from '@/components/Header_AI';
 import LottieAnimation from '@/components/LottieAnimation';
 import animationData from '../public/yellow_forex.json'; // replace with your file path
 import FadeInWhenVisible from './card-wrapper';
-import ImageWithText from '@/components/CardSection';
-
+import CTACard from '@/components/CtaCard';
+import MinorHeroSection from '@/components/MinorHeroSection';
 type Box = {
   color: string;
   text: string;
@@ -28,24 +28,20 @@ const MyComponent: React.FC = () => {
       <PageWrapper >
         {/*<Header />*/}
         <HeroSection />
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-center justify-center min-h-screen">
-          {boxes.map((box, index) => (
-            <Card key={index}>
-            <FadeInWhenVisible>
-              
-                <div
-                  className={`p-4 w-64 h-64 flex items-center justify-center shadow-lg rounded  bg-yellow-500`}
-                >
-                  {box.text}
-                </div>
-            </FadeInWhenVisible>
-            </Card>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 items-center justify-center min-h-screen">
 
-          ))}
+          <FadeInWhenVisible>
+            <CTACard />
+          </FadeInWhenVisible>
+          <FadeInWhenVisible>
+            <MinorHeroSection heading={'Understanding Cryptocurrency and Forex: A Brief Overview'} subText={' Cryptocurrency is a digital form of currency that uses cryptography for secure transactions, while Forex refers to the global decentralized market for trading foreign currencies'} imageUrl={'https://www.arshakir.com/uploads/projects/saas-landing-page-freebie-4.webp'} ctaLink={'fuk'} />
+          </FadeInWhenVisible>
+
+
         </div>
         <AnimatedText inputText={'my_name____is___jatique i hate nonsense rgpoahgpoargho'} randomizeColor={true} colorStart={'blue'} colorEnd={'green'} />
       </PageWrapper>
-      <ImageWithText text={'"Blockchain technology revolutionizes industries by providing secure, transparent transactions. Cryptocurrencies like Bitcoin leverage blockchain to decentralize financial systems and empower users globally."'} imageUrl={'https://www.arshakir.com/uploads/projects/saas-landing-page-freebie-4.webp'}/>
+
 
     </>
   );

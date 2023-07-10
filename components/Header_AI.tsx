@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import AnimatedText from './AnimatedText';
-import animationData from '../public/yellow_forex.json'; // replace with your file path
+import forexChat from '../public/yellow_forex.json'; // replace with your file path
+import getStarted from '../public/get-started-button.json'
 import LottieAnimation from './LottieAnimation';
 
 const textVariants = {
@@ -26,21 +27,21 @@ const HeroSection: React.FC = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setIndex((prevIndex) => (prevIndex + 1) % descriptions.length);
-        }, 1000); // Change description every 5 seconds
+        }, 5000); // Change description every 5 seconds
         return () => clearInterval(timer);
     }, []);
 
     return (
         <section className="bg-white dark:bg-gray-900">
-            <div className="flex flex-col lg:flex-row-reverse max-w-screen-xl px-4 py-8 mx-auto lg:space-x-reverse lg:space-x-8 lg:py-16 space-y-8 lg:space-y-0">
-                <div className="flex-1 flex justify-center lg:justify-end items-center">
+            <div className="flex flex-col-reverse lg:flex-row-reverse max-w-screen-xl px-4 py-8 mx-auto lg:space-x-reverse lg:space-x-8 lg:py-16 space-y-8 lg:space-y-0">
+                <div className="flex-1 flex justify-center  items-center">
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 2 }}
                     >
                         <div className="max-w-full">
-                            <LottieAnimation animationData={animationData} speed={1}  />
+                            <LottieAnimation animationData={forexChat} speed={1} />
                         </div>
                     </motion.div>
                 </div>
@@ -73,9 +74,8 @@ const HeroSection: React.FC = () => {
                     >
                         <AnimatedText inputText={'CapitalFX is a leading platform for trading and investing in cryptocurrencies, forex, and other financial instruments. We provide a seamless and secure interface for all your trading needs.'} randomizeColor={true} colorStart={'yellow'} colorEnd={'purple'} />
                     </motion.p>
-                    <Link href="#" className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                        Get started
-                        <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
+                    <Link href="#" className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 ">
+                    Get STARTED
                     </Link>
                 </div>
             </div>

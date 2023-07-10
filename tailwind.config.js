@@ -8,14 +8,6 @@ module.exports = {
   ],
   darkMode: "class", // or 'media' or 'class'
   theme: {
-    screens: {
-      xs: '500px',      // Extra small screen
-      sm: '640px',      // Small screen
-      md: '800px',      // Medium screen
-      lg: '1000px',     // Large screen
-      xl: '1200px',     // Extra large screen
-      '2xl': '1400px',  // Twice extra large screen
-    },
     extend: {
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],

@@ -1,46 +1,39 @@
-'use client';
-import React from 'react';
-import Image from 'next/image';
+'use client'; import React from 'react'; 
+import Image from 'next/image'; 
 import { motion } from 'framer-motion';
+ import bouncingBitcoin from '../public/bouncing-bitcoin.json'
+  import LottieAnimation from './LottieAnimation';
 
-interface ISubSectionProps {
-    imageUrl: string;
-    heading: string;
-    subText: string;
-}
+interface ISubSectionProps { imageUrl: string; heading: string; subText: string; }
 
-const SubSection: React.FC<ISubSectionProps> = ({ imageUrl, heading, subText }) => {
-    const textVariants = {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1 },
-    };
-    
-    const fontSizeBasedOnTextLength = subText.length > 50 ? "text-md" : "text-xl";
-    
-    return (
-        <div className="lg:flex bg-white p-5 rounded-lg shadow-lg dark:bg-gray-900">
-            <motion.div
-                className={`w-full lg:w-1/2 ${subText.length > 50 && "order-last lg:order-first"}`}
-                variants={textVariants}
-                initial="hidden"
-                animate="visible"
-            >
-                <div className="w-full h-64 lg:h-auto">
-                    <Image src={imageUrl} alt={heading} width={500} height={300} className="object-cover" />
-                </div>
-            </motion.div>
-            <motion.div
-                className={`w-full lg:w-1/2 flex flex-col justify-center items-center text-center 
-                            ${subText.length > 50 ? 'my-2 lg:my-0' : ''} ${fontSizeBasedOnTextLength}`}
-                variants={textVariants}
-                initial="hidden"
-                animate="visible"
-            >
-                <h1 className="font-bold text-2xl mb-2 uppercase dark:text-white">{heading}</h1>
-                <p className="text-gray-700 dark:text-gray-300">{subText}</p>
-            </motion.div>
-        </div>
-    );
+const SubSection: React.FC<ISubSectionProps> = ({ imageUrl, heading, subText }) => { const textVariants = { hidden: { opacity: 0 }, visible: { opacity: 1 }, };
+const animationHeight = typeof window !== 'undefined' && window.innerWidth < 768 ? 350 : 400;
+const animationWidth = typeof window !== 'undefined' && window.innerWidth < 768 ? 350 : 400;
+
+return (
+    <div className="lg:flex bg-gradient-to-r from-white via-gray-100 to-gray-200 dark:from-gray-900  dark:to-gray-800  p-3 rounded-lg shadow-lg bg-opacity-50">
+        <motion.div
+            className={`w-full lg:w-1/2 ${subText.length > 50 && "order-last lg:order-first"}`}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+        >
+            <div className="w-full h-64 lg:h-auto object-cover ">
+                <LottieAnimation animationData={bouncingBitcoin} speed={1} height={animationHeight} width={animationWidth}/>
+            </div>
+        </motion.div>
+        <motion.div
+            className={`w-full lg:w-1/2 flex flex-col justify-center items-center text-center 
+                        ${subText.length > 50 ? 'my-2 lg:my-0' : ''}`}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+        >
+            <h1 className="font-bold text-lg lg:text-3xl mb-2 uppercase dark:text-white">{heading}</h1>
+            <p className="text-sm lg:text-lg text-gray-700 dark:text-gray-300">{subText}</p>
+        </motion.div>
+    </div>
+);
 };
 
 export default SubSection;

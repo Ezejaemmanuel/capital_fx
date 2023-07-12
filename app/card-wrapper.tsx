@@ -1,13 +1,9 @@
 'use client';
-import { useEffect, FC } from 'react';
+import React, { memo, useEffect } from 'react';
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-interface FadeInWhenVisibleProps {
-  children: React.ReactNode;
-}
-
-const FadeInWhenVisible: FC<FadeInWhenVisibleProps> = ({ children }) => {
+const FadeInWhenVisible: React.FC<{children: React.ReactNode}> = memo(({ children }) => {
   const controls = useAnimation();
   const { ref, inView } = useInView({
     triggerOnce: false, // Change this to false if you want the animation to trigger again whenever it comes in view
@@ -35,5 +31,6 @@ const FadeInWhenVisible: FC<FadeInWhenVisibleProps> = ({ children }) => {
       </motion.div>
     </AnimatePresence>
   );
-}
+});
+
 export default FadeInWhenVisible;

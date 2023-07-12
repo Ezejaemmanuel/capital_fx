@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer';
 const FadeInWhenVisible: React.FC<{children: React.ReactNode}> = memo(({ children }) => {
   const controls = useAnimation();
   const { ref, inView } = useInView({
-    triggerOnce: false, // Change this to false if you want the animation to trigger again whenever it comes in view
+    triggerOnce: false,
   });
 
   useEffect(() => {
@@ -21,10 +21,10 @@ const FadeInWhenVisible: React.FC<{children: React.ReactNode}> = memo(({ childre
         ref={ref}
         animate={controls}
         initial="hidden"
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.6 }} // changed duration to 0.6 for slower animation
         variants={{
-          visible: { opacity: 1, scale: 1 },
-          hidden: { opacity: 0, scale: 0 }
+          visible: { opacity: 1, scale: 1, y: 0 }, // added y: 0 so that it ends at the original position
+          hidden: { opacity: 0, scale: 0, y: 100 } // added y: 100 to start from '100px' below
         }}
       >
         {children}

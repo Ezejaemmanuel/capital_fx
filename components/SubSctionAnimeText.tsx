@@ -42,7 +42,7 @@ const SubSectionAnimeText: React.FC<SubSectionAnimeTextProps> = ({ inputText, ra
 
   return (
     <AnimatePresence mode='wait'>
-      <div className="flex flex-wrap items-center justify-center bg-white dark:bg-gray-900 sm:whitespace-pre-wrap">
+      <div className="flex flex-wrap items-center justify-center bg-white bg-gradient-to-r from-white via-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800  sm:whitespace-pre-wrap">
         {chars.map((char, i) => (
           <motion.span
             ref={ref}

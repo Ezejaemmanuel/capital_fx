@@ -3,6 +3,7 @@
 import Image from 'next/image'; 
 import { motion } from 'framer-motion';
 import LottieAnimation from './LottieAnimation';
+import SubSectionAnimeText from './SubSctionAnimeText';
 
 interface ISubSectionProps { 
   imageURL: string; 
@@ -39,7 +40,8 @@ const SubSection: React.FC<ISubSectionProps> = ({ imageURL, heading, subText, re
         animate="visible"
       >
         <h1 className="font-bold text-lg lg:text-3xl mb-2 uppercase dark:text-white">{heading}</h1>
-        <p className="text-sm lg:text-lg text-gray-700 dark:text-gray-300">{subText}</p>
+        {/* <p className="text-sm lg:text-lg text-gray-700 dark:text-gray-300">{subText}</p> */}
+        <SubSectionAnimeText inputText={subText} randomizeColor={true} colorStart={'yellow'} colorEnd={'red'} />
       </motion.div>
     </div>
   );

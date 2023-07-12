@@ -7,7 +7,7 @@ import AnimatedText from './AnimatedText';
 import forexChat from '../public/yellow_forex.json'; // replace with your file path
 import getStarted from '../public/get-started-button.json'
 import LottieAnimation from './LottieAnimation';
-
+import bouncingBitcoin from '../public/bouncing-bitcoin.json'
 const textVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },

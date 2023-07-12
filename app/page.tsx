@@ -20,7 +20,7 @@ const MyComponent: React.FC = () => {
       <PageWrapper >
         <HeroSection />
         <div className="flex flex-col items-center justify-center">
-          {data.cryptoTraderAds.map((item: CryptoTraderAd, index: number) => (
+          {data.map((item: CryptoTraderAd, index: number) => (
             <FadeInWhenVisible key={item.shortName}>
               <div className="w-full ">
                 <SubSection 

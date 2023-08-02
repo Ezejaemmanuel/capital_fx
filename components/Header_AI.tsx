@@ -26,12 +26,7 @@ const HeroSection: React.FC = () => {
         "Navigate the landscape of Cryptocurrencies and Forex"
     ];
 
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setIndex((prevIndex) => (prevIndex + 1) % descriptions.length);
-        }, 5000); // Change description every 5 seconds
-        return () => clearInterval(timer);
-    }, []);
+   
 
     return (
         <section className="bg-white dark:bg-gray-900">
@@ -43,10 +38,7 @@ const HeroSection: React.FC = () => {
                         transition={{ duration: 2 }}
                     >
                         <div className="max-w-full">
-                          {index % 2 === 0
-                            ? <LottieAnimation animationData={forexChat} speed={1} />
-                            : <LottieAnimation animationData={bouncingBitcoin} speed={1} />
-                          }  
+                          <LottieAnimation animationData={forexChat} speed={1} />                           
                         </div>
                     </motion.div>
                 </div>
